@@ -68,11 +68,9 @@ def reach_checkout_sony_center(client, product_url, product_id, email, first_nam
 
 
 if __name__ =='__main__':
-    account = "AC567a9c4f67727815a87b4369943afa6a"
-    token = "8e8a7619b2b806c869414c920af1bb7b"
-    client = Client(account, token)
     
     ap = argparse.ArgumentParser()
+    ap.add_argument("-to", "--token", required = True, help = "twilio token")
     ap.add_argument("-pr", "--product", required = True, help = "product url")
     ap.add_argument("-pid", "--pro_id", required = True, help = "product_id")
     ap.add_argument("-e", "--email", required = True, help = "email id")
@@ -86,6 +84,10 @@ if __name__ =='__main__':
     ap.add_argument("-p", "--phone", required = True, help = "phone")
     ap.add_argument("-pi", "--pin", required = True, help = "pin")
     args = vars(ap.parse_args())
+
+    account = "AC567a9c4f67727815a87b4369943afa6a"
+    token = args['token']
+    client = Client(account, token)
     
     reach_checkout_sony_center(client, args['product'], args['pro_id'], args['email'], args['fname'], args['lname'], args['address'], args['apart'], args['city'], args['country'], args['state'], args['phone'],
     	args['pin'])
