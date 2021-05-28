@@ -1,10 +1,4 @@
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-import pywhatkit
 from twilio.rest import Client
-import time
 import argparse
 from helper.reliance_digital import reach_reliance_digital
 from helper.sony_center import reach_checkout_sony_center
